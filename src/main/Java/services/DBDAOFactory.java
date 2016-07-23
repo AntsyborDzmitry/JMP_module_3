@@ -1,7 +1,7 @@
 package services;
 
-import dry1.services.DAO.DBConnectionDAO;
-import dry1.services.DAOImpl.DBConnectionDAOSQLImpl;
+import services.DAO.DBConnectionDAO;
+import services.DAOImpl.DBConnectionDAOSQLImpl;
 
 
 public class DBDAOFactory {
