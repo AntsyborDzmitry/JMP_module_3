@@ -51,27 +51,27 @@ File f = new File(FILE_PATH);
 
     public Person readPerson(String name) {
         Person p = new Person();
-               String line = "";
-               String cvsSplitBy = ",";
-               File csvFile = new File(FILE_PATH);
-               if (csvFile.exists()) {
+        String line = "";
+        String cvsSplitBy = ",";
+        File csvFile = new File(FILE_PATH);
+        if (csvFile.exists()) {
 
-                   try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
+           try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
 
-                       while ((line = br.readLine()) != null) {
+               while ((line = br.readLine()) != null) {
 
-                           String[] person = line.split(cvsSplitBy);
+                   String[] person = line.split(cvsSplitBy);
 
-                           if (person[0].equals(name)){
-                               p.setName(person[0]);
-                               p.setAge(Integer.parseInt( person[1]));
-                               return p;
-                           }
-                       }
-                   } catch (IOException e) {
-                       throw new RuntimeException(e);
+                   if (person[0].equals(name)){
+                       p.setName(person[0]);
+                       p.setAge(Integer.parseInt( person[1]));
+                       return p;
                    }
                }
-               return p;
+           } catch (IOException e) {
+               throw new RuntimeException(e);
+           }
+        }
+        return p;
     }
 }
